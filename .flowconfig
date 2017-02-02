@@ -1,0 +1,11 @@
+[ignore]
+.*/dist/.*
+.*/coverage/.*
+
+[options]
+suppress_type=$FlowIssue
+esproposal.export_star_as=enable
+
+[include]
+
+[libs]

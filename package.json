@@ -1,0 +1,58 @@
+{
+  "name": "@longseespace/hdviet",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Promise based Node API for the hdviet API",
+  "main": "dist/index.js",
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/longseespace/hdviet.git"
+  },
+  "author": "Long Nguyen <long@nomadreact.com>",
+  "license": "MIT",
+  "scripts": {
+    "clean": "rimraf dist",
+    "build": "babel src -d dist",
+    "prepublish": "npm run build",
+    "lint": "eslint src",
+    "lint:fix": "eslint src --fix",
+    "test": "jest",
+    "test:watch": "jest --watch"
+  },
+  "dependencies": {
+    "axios": "0.15.3",
+    "lodash": "4.17.4"
+  },
+  "devDependencies": {
+    "babel-cli": "6.22.2",
+    "babel-eslint": "6.1.2",
+    "babel-plugin-syntax-flow": "6.18.0",
+    "babel-plugin-transform-flow-strip-types": "6.22.0",
+    "babel-plugin-transform-object-rest-spread": "6.22.0",
+    "babel-preset-env": "1.1.8",
+    "eslint": "2.13.1",
+    "eslint-config-airbnb": "9.0.1",
+    "eslint-plugin-import": "1.12.0",
+    "eslint-plugin-jsx-a11y": "1.5.5",
+    "eslint-plugin-react": "5.2.2",
+    "jest": "18.1.0",
+    "rimraf": "2.5.4"
+  },
+  "jest": {
+    "testPathDirs": [
+      "./src",
+      "./tests"
+    ],
+    "collectCoverage": true,
+    "coverageDirectory": "coverage",
+    "moduleFileExtensions": [
+      "js",
+      "json",
+      "es6"
+    ]
+  },
+  "bugs": {
+    "url": "https://github.com/longseespace/hdviet/issues"
+  },
+  "homepage": "https://github.com/longseespace/hdviet#readme"
+}
