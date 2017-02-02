@@ -1,12 +1,12 @@
 # hdviet
-Promise based Node API for the HDViet API.
+Promise based Node API for the HDViet.
 
 ## Installing
 Using yarn
 ```bash
-$ yarn add @longseespace/hdviet
+$ yarn add hdviet
 ```
 Using npm
 ```bash
-$ npm install --save @longseespace/hdviet
+$ npm install --save hdviet
 ```

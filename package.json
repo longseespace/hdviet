@@ -1,8 +1,7 @@
 {
-  "name": "@longseespace/hdviet",
+  "name": "hdviet",
   "version": "0.1.0",
-  "private": true,
-  "description": "Promise based Node API for the hdviet API",
+  "description": "Promise based Node API for HDViet",
   "main": "dist/index.js",
   "repository": {
     "type": "git",
