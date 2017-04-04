@@ -44,34 +44,34 @@ export async function login(
   return newModelFromJson(data.data);
 }
 
-const api = axios.create({
-  'baseURL': API_URL,
-  'timeout': 30000, // 30seconds
-});
-
 class HDViet {
   accessToken: string;
+  api: any;
 
   constructor() {
     this.accessToken = '';
+    this.api = axios.create({
+      'baseURL': API_URL,
+      'timeout': 30000, // 30seconds
+    });
   }
 
   async loginAnonymously() : Promise<User> {
     const user = await loginAnonymously();
     this.accessToken = user.accessToken;
-    api.defaults.headers.common.Authorization = this.accessToken;
+    this.api.defaults.headers.common.Authorization = this.accessToken;
     return user;
   }
 
   async login(email: string, password: string, key: string, captcha: string) : Promise<User> {
     const user = await login(email, password, key, captcha);
     this.accessToken = user.accessToken;
-    api.defaults.headers.common.Authorization = this.accessToken;
+    this.api.defaults.headers.common.Authorization = this.accessToken;
     return user;
   }
 
   async getMovies(params: MovieParams) : Promise<MovieList> {
-    const { data } = await api.get('movie/filter', { params });
+    const { data } = await this.api.get('movie/filter', { params });
     return {
       pager: newModelFromJson(data.data.metadata),
       movies: map(newModelFromJson, data.data.lists),
@@ -79,7 +79,7 @@ class HDViet {
   }
 
   async getPlaylist(movieId: number): Promise<Playlist> {
-    const { data } = await api.get(`playlist/${movieId}`, {
+    const { data } = await this.api.get(`playlist/${movieId}`, {
       params: { w: 1920 },
     });
     return {
