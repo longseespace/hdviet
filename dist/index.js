@@ -121,16 +121,14 @@ var AUTH_API_URL = 'https://id.hdviet.com/authentication/login';
 exports.loginAnonymously = _loginAnonymously;
 exports.login = _login;
 
-
-var api = _axios2.default.create({
-  'baseURL': API_URL,
-  'timeout': 30000 });
-
 var HDViet = function () {
   function HDViet() {
     _classCallCheck(this, HDViet);
 
     this.accessToken = '';
+    this.api = _axios2.default.create({
+      'baseURL': API_URL,
+      'timeout': 30000 });
   }
 
   _createClass(HDViet, [{
@@ -149,7 +147,7 @@ var HDViet = function () {
                 user = _context3.sent;
 
                 this.accessToken = user.accessToken;
-                api.defaults.headers.common.Authorization = this.accessToken;
+                this.api.defaults.headers.common.Authorization = this.accessToken;
                 return _context3.abrupt('return', user);
 
               case 6:
@@ -182,7 +180,7 @@ var HDViet = function () {
                 user = _context4.sent;
 
                 this.accessToken = user.accessToken;
-                api.defaults.headers.common.Authorization = this.accessToken;
+                this.api.defaults.headers.common.Authorization = this.accessToken;
                 return _context4.abrupt('return', user);
 
               case 6:
@@ -210,7 +208,7 @@ var HDViet = function () {
             switch (_context5.prev = _context5.next) {
               case 0:
                 _context5.next = 2;
-                return api.get('movie/filter', { params: params });
+                return this.api.get('movie/filter', { params: params });
 
               case 2:
                 _ref8 = _context5.sent;
@@ -245,7 +243,7 @@ var HDViet = function () {
             switch (_context6.prev = _context6.next) {
               case 0:
                 _context6.next = 2;
-                return api.get('playlist/' + movieId, {
+                return this.api.get('playlist/' + movieId, {
                   params: { w: 1920 }
                 });
 

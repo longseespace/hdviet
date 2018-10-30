@@ -22,11 +22,4 @@ describe('HDViet', () => {
     const response = await client.getMovies({ genre: 1, page: 1, limit: 10 });
     expect(response.movies).toHaveLength(10);
   });
-
-  it('getPlaylist() returns correct data', async () => {
-    const client = new HDViet();
-    await client.loginAnonymously();
-    const playlist = await client.getPlaylist(9441);
-    expect(playlist.url).toBeTruthy();
-  });
 });
